@@ -1,32 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<div>
+  <main-tab-bar class="tab-bar"></main-tab-bar>
+  <keep-alive exclude="Detail">
+    <router-view></router-view>
+  </keep-alive>
+  
+
+</div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import MainTabBar from '@/components/content/MainTabBar'
+// import MainTabBar from './components/content/MainTabBar'
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
+  components: {
+    MainTabBar
+  }
 }
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+<style scoped>
+.tab-bar {
+  z-index: 10;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import 'assets/css/base.css'
 </style>
